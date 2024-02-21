@@ -5,11 +5,9 @@ from django.db.models.signals import(
     post_save
 )
 
-# Create your models here.
-
 class Document(models.Model):
     title = models.CharField(max_length=200)
-    file = models.FileField(blank=True, null=True, default="")
+    file = models.FileField(blank=False, null=False)
 
 @receiver(post_save, sender=Document)
 def user_created_handler(sender, instance, *args, **kwargs):
