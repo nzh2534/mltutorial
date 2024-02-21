@@ -16,4 +16,4 @@ RUN set -ex \
 WORKDIR /app
 ADD . .
 
-CMD gunicorn fhphome.wsgi:application --timeout 5000 --bind 0.0.0.0:$PORT
+CMD gunicorn fhphome.wsgi:application --bind 0.0.0.0:$PORT
