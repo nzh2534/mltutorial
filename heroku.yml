@@ -1,0 +1,13 @@
+build:
+  docker:
+    web: Dockerfile
+    worker: Dockerfile
+run:
+  web: 
+    command:
+      - gunicorn mltutorial.wsgi:application --bind=0.0.0.0:$PORT
+    image: web
+  worker: 
+    command:
+      - celery -A mltutorial worker -l info
+    image: worker
